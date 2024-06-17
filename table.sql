@@ -1,0 +1,53 @@
+CREATE TABLE `payments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `merchantId` varchar(255) NOT NULL,
+  `merchantTransactionId` varchar(255) NOT NULL,
+  `merchantUserId` varchar(255) NOT NULL,
+  `amount` bigint NOT NULL,
+  `redirectUrl` varchar(255) NOT NULL,
+  `redirectMode` varchar(50) NOT NULL,
+  `callbackUrl` varchar(255) NOT NULL,
+  `mobileNumber` varchar(20) DEFAULT NULL,
+  `paymentInstrumentType` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `merchantTransactionId` (`merchantTransactionId`),
+  KEY `merchantId` (`merchantId`),
+  KEY `merchantTransactionId_2` (`merchantTransactionId`),
+  KEY `merchantUserId` (`merchantUserId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `payment_callbacks` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) NOT NULL,
+  `merchantId` varchar(255) NOT NULL,
+  `transactionId` varchar(255) NOT NULL,
+  `amount` bigint NOT NULL,
+  `providerReferenceId` varchar(255) NOT NULL,
+  `merchantOrderId` varchar(255) NOT NULL,
+  `param1` varchar(255) DEFAULT NULL,
+  `param2` varchar(255) DEFAULT NULL,
+  `param3` varchar(255) DEFAULT NULL,
+  `param4` varchar(255) DEFAULT NULL,
+  `param5` varchar(255) DEFAULT NULL,
+  `param6` varchar(255) DEFAULT NULL,
+  `param7` varchar(255) DEFAULT NULL,
+  `param8` varchar(255) DEFAULT NULL,
+  `param9` varchar(255) DEFAULT NULL,
+  `param10` varchar(255) DEFAULT NULL,
+  `param11` varchar(255) DEFAULT NULL,
+  `param12` varchar(255) DEFAULT NULL,
+  `param13` varchar(255) DEFAULT NULL,
+  `param14` varchar(255) DEFAULT NULL,
+  `param15` varchar(255) DEFAULT NULL,
+  `param16` varchar(255) DEFAULT NULL,
+  `param17` varchar(255) DEFAULT NULL,
+  `param18` varchar(255) DEFAULT NULL,
+  `param19` varchar(255) DEFAULT NULL,
+  `param20` varchar(255) DEFAULT NULL,
+  `checksum` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM phonpe.payment_callbacks;
